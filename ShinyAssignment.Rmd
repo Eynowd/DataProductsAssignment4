@@ -1,0 +1,42 @@
+---
+title: "Shiny Assignment"
+author: "Geoff Skellams"
+date: "21 December 2017"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introduction
+
+This application examines the effect that vehicle weight and engine displacement has on a vehicle's fuel economy. The application plots the relationship between these three variables in an interactive three dimensional scatterplot. The user can change the viewing angle of the plot and zoom it in and out, in order to better see the relationships between the variables.
+
+It's implemented as a [**cloud-based Shiny application**](https://eynowd.shinyapps.io/ShinyAssignment/). When the user chooses to change the data that's included in the plot, the server side code will regenerate the interface web page to show the user's new choices.
+
+## Mtcars Dataset
+
+The application uses data from the **mtcars** dataset that comes with R. It only uses the vehicle weight (*wt*), engine displacement (*disp*), miles per gallon (*mpg*) and number of cylinders (*cyl*) columns. The first eight points of the dataset are shown below.
+
+```{r cars, echo = TRUE, comment = ""}
+head(mtcars[,c("wt", "disp", "mpg", "cyl")], 8)
+```
+
+## Using the Application
+
+The application loads all of the mtcars dataset and plots the data in three dimensions. 
+
+- To filter the data by the number of cylinders the vehicles have, select or deselect the checkboxes on the left sidebar of the application page. The plot will automatically redraw itself to show data points with the selected numbers of cylinders.
+- You can rotate the plot in three dimension by click and dragging with the mouse in the plot area.
+- If you hover the mouse cursor over one of the points in the plot, it will show details the data about the vehicle that plot represents.
+- You can zoom the plot in and out by using your mouse wheel.
+
+## GitHub Repository
+
+The source code to the Shiny application, and this slide package, can be found in the [Github repository.](https://github.com/Eynowd/DataProductsAssignment4)
+
+- **ui.R** contains the code for the application's user interface.
+- **server.R** contains the backend server code
+- **Global.R** contains code to include the required libraries, to ensure the application functions correctly.
+- **ShinyAssignment.Rmd** contains the R Markdown source for this presentation.
